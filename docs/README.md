@@ -1,3 +1,3 @@
 # Sudoo-Internationalization-React
 
-:tiger2: React function for Internationalization
+React function for Internationalization
