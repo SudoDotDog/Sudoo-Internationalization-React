@@ -19,6 +19,9 @@
     "@sudoo/react-force-dev": "^1.9.0",
     "@sudoo/triforce": "^2.9.25"
   },
+  "peerDependencies": {
+    "@sudoo/internationalization": "*"
+  },
   "nyc": {
     "extension": [
       ".ts"
