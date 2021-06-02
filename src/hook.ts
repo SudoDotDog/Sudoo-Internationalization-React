@@ -17,6 +17,13 @@ export const useInternationalization = (): InternationalizationContextValue => {
     return context;
 };
 
+export const useSetLocale = (): InternationalizationContextValue => {
+
+    const context: InternationalizationContextValue = React.useContext(InternationalizationContext);
+
+    return context;
+};
+
 export const useLocale = (): LOCALE => {
 
     const context: InternationalizationContextValue = useInternationalization();

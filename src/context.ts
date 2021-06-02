@@ -7,10 +7,12 @@
 import { getSystemLanguage, LOCALE } from "@sudoo/internationalization";
 import * as React from "react";
 
+export type SetLocaleFunction = (newLocale: LOCALE) => void;
+
 export type InternationalizationContextValue = {
 
     readonly locale: LOCALE;
-    readonly setLocale: (newLocale: LOCALE) => void;
+    readonly setLocale: SetLocaleFunction;
 };
 
 const defaultContext: InternationalizationContextValue = {
