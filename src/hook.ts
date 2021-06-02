@@ -8,6 +8,8 @@ import { LOCALE, SudooFormat, SudooInternationalization } from "@sudoo/internati
 import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "./context";
 
+export type UseFormatHook = () => SudooFormat;
+
 export const useInternationalization = (): InternationalizationContextValue => {
 
     const context: InternationalizationContextValue = React.useContext(InternationalizationContext);
@@ -28,4 +30,12 @@ export const useFormat = (internationalization: SudooInternationalization): Sudo
     const format: SudooFormat = internationalization.format(locale);
 
     return format;
+};
+
+export const createUseFormat = (internationalization: SudooInternationalization): UseFormatHook => {
+
+    return (): SudooFormat => {
+
+        return useFormat(internationalization);
+    };
 };
