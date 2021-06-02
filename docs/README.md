@@ -27,7 +27,8 @@ import { InternationalizationProvider } from "@sudoo/internationalization-react"
 
 React.hydrate(
     (<InternationalizationProvider>
-        <YourComponent />
+        <YourUseLocaleComponent />
+        <YourSetLocaleComponent />
     </InternationalizationProvider>), 
     document.getElementById("container"),
 );
@@ -37,10 +38,22 @@ React.hydrate(
 
 ```tsx
 import * as React from "react";
-import { SudooFormat } from "@sudoo/internationalization";
-import { useFormat } from "@sudoo/internationalization-react";
+import { SudooFormat, LOCALE } from "@sudoo/internationalization";
+import { SetLocaleFunction, useFormat, useSetLocale } from "@sudoo/internationalization-react";
 
-export const YourComponent: React.FC = (_props: any) => {
+export const YourUseLocaleComponent: React.FC = (_props: any) => {
+
+    const format: SudooFormat = useFormat();
+    const setLocale: SetLocaleFunction = useSetLocale();
+
+    return (<button onClick={() => {
+        setLocale(LOCALE.ENGLISH_UNITED_STATES);
+    }}>
+        {format.get('set-to-english')}
+    </button>);
+};
+
+export const YourSetLocaleComponent: React.FC = (_props: any) => {
 
     const format: SudooFormat = useFormat();
 
