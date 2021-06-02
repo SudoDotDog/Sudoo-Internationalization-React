@@ -6,3 +6,29 @@
 [![downloads](https://img.shields.io/npm/dm/@sudoo/internationalization-react.svg)](https://www.npmjs.com/package/@sudoo/internationalization-react)
 
 React function for Internationalization
+
+## Install
+
+```sh
+yarn add @sudoo/internationalization-react
+yarn add @sudoo/internationalization # Peer Dependencies
+# Or
+npm install @sudoo/internationalization-react --save
+npm install @sudoo/internationalization --save # Peer Dependencies
+```
+
+## Usage
+
+Add Provider
+
+```tsx
+import * as React from "react";
+import { InternationalizationProvider } from "@sudoo/internationalization-react";
+
+React.hydrate(
+    (<InternationalizationProvider>
+        <YourComponent />
+    </InternationalizationProvider>), 
+    document.getElementById("container"),
+);
+```
