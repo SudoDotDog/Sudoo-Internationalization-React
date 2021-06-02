@@ -19,7 +19,7 @@ npm install @sudoo/internationalization --save # Peer Dependencies
 
 ## Usage
 
-Add Provider
+### Provider API
 
 ```tsx
 import * as React from "react";
@@ -31,4 +31,21 @@ React.hydrate(
     </InternationalizationProvider>), 
     document.getElementById("container"),
 );
+```
+
+### Hooks API
+
+```tsx
+import * as React from "react";
+import { SudooFormat } from "@sudoo/internationalization";
+import { useFormat } from "@sudoo/internationalization-react";
+
+export const YourComponent: React.FC = (_props: any) => {
+
+    const format: SudooFormat = useFormat();
+
+    return (<div>
+        {format.get('hello-world')}
+    </div>);
+};
 ```
