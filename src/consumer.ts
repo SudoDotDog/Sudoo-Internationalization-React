@@ -8,12 +8,12 @@ import { LOCALE } from "@sudoo/internationalization";
 import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "./context";
 
-export type LocaleProps = {
+export type WithLocaleProps = {
 
     readonly locale: LOCALE;
 };
 
-export const withLocale = <P>(Component: React.ComponentType<P>): React.FC<P & LocaleProps> => {
+export const withLocale = <P>(Component: React.ComponentType<P>): React.FC<P & WithLocaleProps> => {
 
     return (originalProps: any) => {
 
@@ -26,6 +26,7 @@ export const withLocale = <P>(Component: React.ComponentType<P>): React.FC<P & L
 
                     ...originalProps,
                     locale: value.locale,
+                    setLocale: value.setLocale,
                 });
             },
         );
