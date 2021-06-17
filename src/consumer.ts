@@ -4,7 +4,7 @@
  * @description Consumer
  */
 
-import { LOCALE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
+import { LOCALE, PROFILE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
 import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "./context";
 
@@ -36,15 +36,15 @@ export const withLocale = <P>(
     };
 };
 
-export type WithInternationalizationProps = WithLocaleProps & {
+export type WithInternationalizationProps<PF extends PROFILE = any> = WithLocaleProps & {
 
-    readonly format: SudooFormat;
+    readonly format: SudooFormat<PF>;
 };
 
-export const withInternationalization = <P>(
+export const withInternationalization = <P, PF extends PROFILE = any>(
     Component: React.ComponentType<P>,
-    internationalization: SudooInternationalization,
-): React.FC<P & WithInternationalizationProps> => {
+    internationalization: SudooInternationalization<PF>,
+): React.FC<P & WithInternationalizationProps<PF>> => {
 
     return (originalProps: any) => {
 
