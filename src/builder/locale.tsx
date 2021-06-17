@@ -6,7 +6,8 @@
 
 import { LOCALE, SudooInternationalization } from "@sudoo/internationalization";
 import * as React from "react";
-import { InternationalizationContextValue, SetLocaleFunction } from "../context";
+import { InternationalizationContextValue } from "../context";
+import { SetLocaleFunction } from "../declare";
 import { useInternationalization } from "../hook";
 
 export type LocaleBuilderProps = {

@@ -6,7 +6,8 @@
 
 import { LOCALE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
 import * as React from "react";
-import { InternationalizationContext, InternationalizationContextValue, SetLocaleFunction } from "./context";
+import { InternationalizationContext, InternationalizationContextValue } from "./context";
+import { SetLocaleFunction } from "./declare";
 
 export type UseFormatHook = () => SudooFormat;
 

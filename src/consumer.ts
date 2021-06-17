@@ -7,11 +7,12 @@
 import { LOCALE, PROFILE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
 import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "./context";
+import { SetLocaleFunction } from "./declare";
 
 export type WithLocaleProps = {
 
     readonly locale: LOCALE;
-    readonly setLocale: (newLocale: LOCALE) => void;
+    readonly setLocale: SetLocaleFunction;
 };
 
 export const withLocale = <P>(

@@ -6,8 +6,7 @@
 
 import { getSystemLanguage, LOCALE } from "@sudoo/internationalization";
 import * as React from "react";
-
-export type SetLocaleFunction = (newLocale: LOCALE) => void;
+import { SetLocaleFunction } from "./declare";
 
 export type InternationalizationContextValue = {
 
