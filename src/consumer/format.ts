@@ -14,12 +14,16 @@ export type WithFormatProps<PF extends PROFILE = any> = WithLocaleProps & {
     readonly format: SudooFormat<PF>;
 };
 
-export const withFormat = <P, PF extends PROFILE = any>(
+export const withFormat = <P extends WithFormatProps<PF>, PF extends PROFILE = any>(
     Component: React.ComponentType<P>,
     internationalization: SudooInternationalization<PF>,
-): React.FC<P & WithFormatProps<PF>> => {
+): React.ComponentType<Omit<P, keyof WithFormatProps<PF>>> & {
+    WrappedComponent: React.ComponentType<P>;
+} => {
 
-    return (originalProps: any) => {
+    const component: React.ComponentType<Omit<P, keyof WithFormatProps<PF>>> & {
+        WrappedComponent: React.ComponentType<P>;
+    } = (originalProps: any) => {
 
         return React.createElement(
             InternationalizationContext.Consumer,
@@ -36,4 +40,7 @@ export const withFormat = <P, PF extends PROFILE = any>(
             },
         );
     };
+
+    component.WrappedComponent = Component;
+    return component;
 };

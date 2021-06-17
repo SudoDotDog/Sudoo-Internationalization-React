@@ -15,11 +15,15 @@ export type WithLocaleProps = {
     readonly setLocale: SetLocaleFunction;
 };
 
-export const withLocale = <P>(
+export const withLocale = <P extends WithLocaleProps>(
     Component: React.ComponentType<P>,
-): React.FC<P & WithLocaleProps> => {
+): React.ComponentType<Omit<P, keyof WithLocaleProps>> & {
+    WrappedComponent: React.ComponentType<P>;
+} => {
 
-    return (originalProps: any) => {
+    const component: React.ComponentType<Omit<P, keyof WithLocaleProps>> & {
+        WrappedComponent: React.ComponentType<P>;
+    } = (originalProps: any) => {
 
         return React.createElement(
             InternationalizationContext.Consumer,
@@ -35,4 +39,7 @@ export const withLocale = <P>(
             },
         );
     };
+
+    component.WrappedComponent = Component;
+    return component;
 };
