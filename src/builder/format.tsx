@@ -4,23 +4,23 @@
  * @description Format
  */
 
-import { PROFILE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
+import { SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
 import * as React from "react";
 import { InternationalizationContextValue } from "../context";
 import { useInternationalization } from "../hook";
 
-export type FormatBuilderProps<PF extends PROFILE> = {
+export type FormatBuilderProps<PK extends string = string> = {
 
-    readonly internationalization: SudooInternationalization<PF>;
+    readonly internationalization: SudooInternationalization<PK>;
 
-    readonly builder?: (format: SudooFormat<PF>, context: InternationalizationContextValue) => any;
-    readonly children?: (format: SudooFormat<PF>, context: InternationalizationContextValue) => any;
+    readonly builder?: (format: SudooFormat<PK>, context: InternationalizationContextValue) => any;
+    readonly children?: (format: SudooFormat<PK>, context: InternationalizationContextValue) => any;
 };
 
-export const FormatBuilder: React.FC<FormatBuilderProps<PROFILE>> = <PF extends PROFILE = any>(props: FormatBuilderProps<PF>) => {
+export const FormatBuilder: React.FC<FormatBuilderProps> = <PK extends string = string>(props: FormatBuilderProps<PK>) => {
 
     const context: InternationalizationContextValue = useInternationalization();
-    const format: SudooFormat<PF> = props.internationalization.format(context.locale);
+    const format: SudooFormat<PK> = props.internationalization.format(context.locale);
 
     if (props.builder) {
         return props.builder(format, context);

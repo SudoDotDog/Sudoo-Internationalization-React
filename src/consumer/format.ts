@@ -4,24 +4,24 @@
  * @description Format
  */
 
-import { PROFILE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
+import { SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
 import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "../context";
 import { WithLocaleProps } from "./locale";
 
-export type WithFormatProps<PF extends PROFILE = any> = WithLocaleProps & {
+export type WithFormatProps<PK extends string = string> = WithLocaleProps & {
 
-    readonly format: SudooFormat<PF>;
+    readonly format: SudooFormat<PK>;
 };
 
-export const withFormat = <P extends WithFormatProps<PF>, PF extends PROFILE = any>(
+export const withFormat = <P extends WithFormatProps<PK>, PK extends string = string>(
     Component: React.ComponentType<P>,
-    internationalization: SudooInternationalization<PF>,
-): React.ComponentType<Omit<P, keyof WithFormatProps<PF>>> & {
+    internationalization: SudooInternationalization<PK>,
+): React.ComponentType<Omit<P, keyof WithFormatProps<PK>>> & {
     WrappedComponent: React.ComponentType<P>;
 } => {
 
-    const component: React.ComponentType<Omit<P, keyof WithFormatProps<PF>>> & {
+    const component: React.ComponentType<Omit<P, keyof WithFormatProps<PK>>> & {
         WrappedComponent: React.ComponentType<P>;
     } = (originalProps: any) => {
 
