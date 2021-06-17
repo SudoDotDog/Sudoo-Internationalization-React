@@ -14,7 +14,9 @@ export type WithLocaleProps = {
     readonly setLocale: (newLocale: LOCALE) => void;
 };
 
-export const withLocale = <P>(Component: React.ComponentType<P>): React.FC<P & WithLocaleProps> => {
+export const withLocale = <P>(
+    Component: React.ComponentType<P>,
+): React.FC<P & WithLocaleProps> => {
 
     return (originalProps: any) => {
 
@@ -42,7 +44,7 @@ export type WithInternationalizationProps = WithLocaleProps & {
 export const withInternationalization = <P>(
     Component: React.ComponentType<P>,
     internationalization: SudooInternationalization,
-): React.FC<P & WithLocaleProps> => {
+): React.FC<P & WithInternationalizationProps> => {
 
     return (originalProps: any) => {
 
