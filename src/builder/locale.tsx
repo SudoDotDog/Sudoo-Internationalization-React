@@ -4,15 +4,13 @@
  * @description Locale
  */
 
-import { LOCALE, SudooInternationalization } from "@sudoo/internationalization";
+import { LOCALE } from "@sudoo/internationalization";
 import * as React from "react";
 import { InternationalizationContextValue } from "../context";
 import { SetLocaleFunction } from "../declare";
 import { useInternationalization } from "../hook";
 
 export type LocaleBuilderProps = {
-
-    readonly internationalization: SudooInternationalization;
 
     readonly builder?: (locale: LOCALE, setLocale: SetLocaleFunction) => any;
     readonly children?: (locale: LOCALE, setLocale: SetLocaleFunction) => any;
@@ -29,4 +27,6 @@ export const LocaleBuilder: React.FC<LocaleBuilderProps> = (props: LocaleBuilder
     if (props.children) {
         return props.children(context.locale, context.setLocale);
     }
+
+    return null;
 };
