@@ -9,7 +9,7 @@ import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "./context";
 import { SetLocaleFunction } from "./declare";
 
-export type UseFormatHook = () => SudooFormat;
+export type UseFormatHook<PK extends string = string> = () => SudooFormat<PK>;
 
 export const useInternationalization = (): InternationalizationContextValue => {
 
@@ -32,18 +32,18 @@ export const useSetLocale = (): SetLocaleFunction => {
     return context.setLocale;
 };
 
-export const useFormat = (internationalization: SudooInternationalization): SudooFormat => {
+export const useFormat = <PK extends string = string>(internationalization: SudooInternationalization<PK>): SudooFormat<PK> => {
 
     const locale: LOCALE = useLocale();
-    const format: SudooFormat = internationalization.format(locale);
+    const format: SudooFormat<PK> = internationalization.format(locale);
 
     return format;
 };
 
-export const createUseFormat = (internationalization: SudooInternationalization): UseFormatHook => {
+export const createUseFormat = <PK extends string = string>(internationalization: SudooInternationalization<PK>): UseFormatHook<PK> => {
 
-    return (): SudooFormat => {
+    return (): SudooFormat<PK> => {
 
-        return useFormat(internationalization);
+        return useFormat<PK>(internationalization);
     };
 };
