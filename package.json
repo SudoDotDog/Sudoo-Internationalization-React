@@ -1,10 +1,22 @@
 {
   "name": "@sudoo/internationalization-react",
+  "packageManager": "yarn@4.5.1",
   "version": "1.5.0",
   "description": "React function for Internationalization",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SudoDotDog/Sudoo-Internationalization-React.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint src",
+    "clean": "rm -rf app",
+    "build": "tsc --project typescript/tsconfig.build.json",
+    "license": "sdb license",
+    "release": "yarn lint && yarn test && yarn license && yarn build",
+    "publish-dry-run": "yarn release && sdb --only publish-dry-run",
+    "publish": "yarn release && sdb --only publish"
   },
   "author": "WMXPY",
   "license": "MIT",
@@ -14,27 +26,23 @@
   "homepage": "https://github.com/SudoDotDog/Sudoo-Internationalization-React#readme",
   "devDependencies": {
     "@sudoo/internationalization": "^2.0.0",
-    "@sudoo/io": "^1.8.0",
-    "@sudoo/react-force": "^2.0.0",
-    "@sudoo/react-force-dev": "^2.0.0",
-    "@sudoo/triforce": "^3.12.0"
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@sudoo/locale": "2.0.0",
+    "@types/chance": "^1.1.6",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
+    "babel-jest": "^29.7.0",
+    "chance": "^1.1.12",
+    "eslint": "^9.17.0",
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   },
   "peerDependencies": {
     "@sudoo/internationalization": "*"
-  },
-  "nyc": {
-    "extension": [
-      ".ts"
-    ],
-    "include": [
-      "src/**/*.ts"
-    ],
-    "instrument": true,
-    "reporter": [
-      "json",
-      "text-summary"
-    ],
-    "report-dir": "coverage",
-    "sourceMap": true
   }
 }
