@@ -4,17 +4,20 @@
  * @description Provider
  */
 
-import { getSystemLanguage, LOCALE } from "@sudoo/internationalization";
+import { getSystemLanguage } from "@sudoo/internationalization";
+import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { InternationalizationContext } from "./context";
 import { InternationalizationManager } from "./manager";
 
 export type InternationalizationProviderProps = {
+
+    readonly children: React.ReactNode;
 };
 
 export type InternationalizationProviderStates = {
 
-    readonly locale: LOCALE;
+    readonly locale: IETF_LOCALE;
 };
 
 export class InternationalizationProvider extends React.Component<InternationalizationProviderProps, InternationalizationProviderStates> {
@@ -57,7 +60,7 @@ export class InternationalizationProvider extends React.Component<Internationali
         </InternationalizationContext.Provider>);
     }
 
-    private _updateLocale(newLocale: LOCALE): void {
+    private _updateLocale(newLocale: IETF_LOCALE): void {
 
         this.setState({
             locale: newLocale,
