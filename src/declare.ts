@@ -4,6 +4,6 @@
  * @description Declare
  */
 
-import { LOCALE } from "@sudoo/internationalization";
+import { IETF_LOCALE } from "@sudoo/locale";
 
-export type SetLocaleFunction = (newLocale: LOCALE) => void;
+export type SetLocaleFunction = (newLocale: IETF_LOCALE) => void;

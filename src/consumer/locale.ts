@@ -4,14 +4,14 @@
  * @description Locale
  */
 
-import { LOCALE } from "@sudoo/internationalization";
+import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "../context";
 import { SetLocaleFunction } from "../declare";
 
 export type WithLocaleProps = {
 
-    readonly locale: LOCALE;
+    readonly locale: IETF_LOCALE;
     readonly setLocale: SetLocaleFunction;
 };
 
