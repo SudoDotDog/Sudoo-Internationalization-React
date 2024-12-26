@@ -5,8 +5,7 @@
  * @override Unit
  */
 
-import { expect } from 'chai';
-import * as Chance from 'chance';
+import Chance from 'chance';
 
 describe('Given Placeholder', (): void => {
 
@@ -14,6 +13,6 @@ describe('Given Placeholder', (): void => {
 
     it('Placeholder', (): void => {
 
-        expect(chance.string()).to.be.not.equal(chance.string());
+        expect(chance.string()).not.toEqual(chance.string());
     });
 });

@@ -20,50 +20,28 @@ export type InternationalizationProviderStates = {
     readonly locale: IETF_LOCALE;
 };
 
-export class InternationalizationProvider extends React.Component<InternationalizationProviderProps, InternationalizationProviderStates> {
+export const InternationalizationProvider: React.FC<InternationalizationProviderProps> = (props: InternationalizationProviderProps) => {
 
-    public readonly state: InternationalizationProviderStates = {
+    const [locale, setLocale] = React.useState<IETF_LOCALE>(getSystemLanguage());
 
-        locale: getSystemLanguage(),
-    };
-
-    public constructor(props: InternationalizationProviderProps) {
-
-        super(props);
-
-        this._updateLocale = this._updateLocale.bind(this);
-    }
-
-    public componentDidMount() {
+    React.useEffect(() => {
 
         const manager: InternationalizationManager = InternationalizationManager.getInstance();
+        manager.addListener("Internationalization-Provider", setLocale);
 
-        manager.addListener("Internationalization-Provider", this._updateLocale);
-    }
+        return () => {
+            manager.removeListener("Internationalization-Provider");
+        };
+    }, []);
 
-    public componentWillUnmount() {
-
-        const manager: InternationalizationManager = InternationalizationManager.getInstance();
-
-        manager.removeListener("Internationalization-Provider");
-    }
-
-    public render(): React.ReactNode {
-
-        return (<InternationalizationContext.Provider
+    return (
+        <InternationalizationContext.Provider
             value={{
-                locale: this.state.locale,
-                setLocale: this._updateLocale,
+                locale,
+                setLocale,
             }}
         >
-            {this.props.children}
-        </InternationalizationContext.Provider>);
-    }
-
-    private _updateLocale(newLocale: IETF_LOCALE): void {
-
-        this.setState({
-            locale: newLocale,
-        });
-    }
-}
+            {props.children}
+        </InternationalizationContext.Provider>
+    );
+};
