@@ -10,8 +10,5 @@
         "sudoo",
         "triforce",
         "tshook"
-    ],
-    "eslint.options": {
-        "configFile": "./typescript/.eslintrc.json"
-    }
+    ]
 }
