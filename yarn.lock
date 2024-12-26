@@ -1852,16 +1852,18 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.0"
     "@babel/preset-typescript": "npm:^7.26.0"
     "@sudoo/internationalization": "npm:^2.0.0"
-    "@sudoo/locale": "npm:2.0.0"
+    "@sudoo/locale": "npm:^2.0.0"
     "@types/chance": "npm:^1.1.6"
     "@types/jest": "npm:^29.5.14"
     "@types/node": "npm:^22.10.2"
+    "@types/react": "npm:^19.0.2"
     "@typescript-eslint/eslint-plugin": "npm:^8.18.2"
     "@typescript-eslint/parser": "npm:^8.18.2"
     babel-jest: "npm:^29.7.0"
     chance: "npm:^1.1.12"
     eslint: "npm:^9.17.0"
     jest: "npm:^29.7.0"
+    react: "npm:^19.0.0"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.7.2"
   peerDependencies:
@@ -1878,7 +1880,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sudoo/locale@npm:2.0.0":
+"@sudoo/locale@npm:^2.0.0":
   version: 2.0.0
   resolution: "@sudoo/locale@npm:2.0.0"
   checksum: 10c0/889d5e03c36f029b26d5267578191ead6e3da9b27955338af4e809358882c65b3518736b2c9850208fa44e76dc2a86c0ba1aadd7a60def1a6fc9f1bb6ad9199b
@@ -2025,6 +2027,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.20.0"
   checksum: 10c0/2c7b71a040f1ef5320938eca8ebc946e6905caa9bbf3d5665d9b3774a8d15ea9fab1582b849a6d28c7fc80756a62c5666bc66b69f42f4d5dafd1ccb193cdb4ac
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^19.0.2":
+  version: 19.0.2
+  resolution: "@types/react@npm:19.0.2"
+  dependencies:
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/8992f39701fcf1bf893ef8f94a56196445667baf08fe4f6050a14e229a17aad3265ad3efc01595ff3b4d5d5c69da885f9aa4ff80f164a613018734efcff1eb8f
   languageName: node
   linkType: hard
 
@@ -2664,6 +2675,13 @@ __metadata:
     shebang-command: "npm:^2.0.0"
     which: "npm:^2.0.1"
   checksum: 10c0/053ea8b2135caff68a9e81470e845613e374e7309a47731e81639de3eaeb90c3d01af0e0b44d2ab9d50b43467223b88567dfeb3262db942dc063b9976718ffc1
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.0.2":
+  version: 3.1.3
+  resolution: "csstype@npm:3.1.3"
+  checksum: 10c0/80c089d6f7e0c5b2bd83cf0539ab41474198579584fa10d86d0cafe0642202343cbc119e076a0b1aece191989477081415d66c9fefbf3c957fc2fc4b7009f248
   languageName: node
   linkType: hard
 
@@ -4656,6 +4674,13 @@ __metadata:
   version: 18.3.1
   resolution: "react-is@npm:18.3.1"
   checksum: 10c0/f2f1e60010c683479e74c63f96b09fb41603527cd131a9959e2aee1e5a8b0caf270b365e5ca77d4a6b18aae659b60a86150bb3979073528877029b35aecd2072
+  languageName: node
+  linkType: hard
+
+"react@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "react@npm:19.0.0"
+  checksum: 10c0/9cad8f103e8e3a16d15cb18a0d8115d8bd9f9e1ce3420310aea381eb42aa0a4f812cf047bb5441349257a05fba8a291515691e3cb51267279b2d2c3253f38471
   languageName: node
   linkType: hard
 

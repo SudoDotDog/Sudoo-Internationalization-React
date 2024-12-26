@@ -4,9 +4,9 @@
  * @description Manager
  */
 
-import { LOCALE } from "@sudoo/internationalization";
+import { IETF_LOCALE } from "@sudoo/locale";
 
-export type InternationalizationListener = (locale: LOCALE) => void;
+export type InternationalizationListener = (locale: IETF_LOCALE) => void;
 
 export class InternationalizationManager {
 
@@ -46,7 +46,7 @@ export class InternationalizationManager {
         return this;
     }
 
-    public trigger(locale: LOCALE): this {
+    public trigger(locale: IETF_LOCALE): this {
 
         for (const listener of this._listeners.values()) {
             listener(locale);

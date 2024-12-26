@@ -4,7 +4,8 @@
  * @description Hook
  */
 
-import { LOCALE, SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
+import { SudooFormat, SudooInternationalization } from "@sudoo/internationalization";
+import { IETF_LOCALE } from "@sudoo/locale";
 import * as React from "react";
 import { InternationalizationContext, InternationalizationContextValue } from "./context";
 import { SetLocaleFunction } from "./declare";
@@ -18,7 +19,7 @@ export const useInternationalization = (): InternationalizationContextValue => {
     return context;
 };
 
-export const useLocale = (): LOCALE => {
+export const useLocale = (): IETF_LOCALE => {
 
     const context: InternationalizationContextValue = useInternationalization();
 
@@ -34,7 +35,7 @@ export const useSetLocale = (): SetLocaleFunction => {
 
 export const useFormat = <PK extends string = string>(internationalization: SudooInternationalization<PK>): SudooFormat<PK> => {
 
-    const locale: LOCALE = useLocale();
+    const locale: IETF_LOCALE = useLocale();
     const format: SudooFormat<PK> = internationalization.format(locale);
 
     return format;
