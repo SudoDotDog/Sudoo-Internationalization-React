@@ -5,6 +5,7 @@
             "dom",
             "esnext"
         ],
+        "jsx": "react",
         "outDir": "../app",
         "downlevelIteration": true,
         "declaration": true,

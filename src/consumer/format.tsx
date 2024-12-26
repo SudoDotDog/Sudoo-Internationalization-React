@@ -25,20 +25,16 @@ export const withFormat = <P extends WithFormatProps<PK>, PK extends string = st
         WrappedComponent: React.ComponentType<P>;
     } = (originalProps: any) => {
 
-        return React.createElement(
-            InternationalizationContext.Consumer,
-            undefined,
-            (value: InternationalizationContextValue) => {
-
+        return (<InternationalizationContext.Consumer>
+            {(value: InternationalizationContextValue) => {
                 return React.createElement(Component, {
-
                     ...originalProps,
                     locale: value.locale,
                     setLocale: value.setLocale,
                     format: internationalization.format(value.locale),
                 });
-            },
-        );
+            }}
+        </InternationalizationContext.Consumer>);
     };
 
     component.WrappedComponent = Component;

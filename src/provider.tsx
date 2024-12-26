@@ -45,7 +45,7 @@ export class InternationalizationProvider extends React.Component<Internationali
         manager.removeListener("Internationalization-Provider");
     }
 
-    public render(): JSX.Element {
+    public render(): React.ReactNode {
 
         return (<InternationalizationContext.Provider
             value={{
